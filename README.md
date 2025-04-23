@@ -1,27 +1,39 @@
-# Autonomous-Robots-Using-ROS2-Humble
+# Maze Solving Robot
 
-An implementation of 3 different autonomous navigation robots fulfilling 3 different purposes:-
-1. World Navigation using Nav2
-2. Maze-Solving
-3. Waiting Tables in a restaurant.
+This project demonstrates a minimal setup for autonomous navigation of a TurtleBot3 Burger robot in a maze using **ROS2 Humble**, **Gazebo**, and the **Navigation2** stack. The `maze_solver.py` script sends the robot to two predefined goal poses within a maze, utilizing the `nav2_simple_commander` library to interface with Navigation2.
 
-# World Navigation using Nav2
-This autonomous robot makes use of the Nav2 stack which includes global and local planners, and integrates localization algorithms such as AMCL (Adaptive Monte Carlo Localization) to help the robot know its position within a known map. It also uses algorithms for real-time obstacle avoidance, and makes use of behaviour trees to structure high-level tasks and decision making.
+---
 
-![Nav2_Multi_goals](https://github.com/user-attachments/assets/4a2095b1-27b0-4e07-a600-aca36c23fa6e)
+## 🚀 Features
 
+- **Gazebo Simulation**  
+  Renders a maze (`maze.pgm`, `maze.yaml`) and the TurtleBot3 Burger robot in Gazebo.
 
-# Autonomous Maze-Solving Robot
-This robot makes use of the SLAM Toolbox (tried with cartographer first, but the mapping was not accurate and the robot kept getting lost) to find its way around a maze and get out.
+- **Navigation2 Integration**  
+  Implements localization using AMCL and autonomous path planning using Navigation2.
 
-![maze_solving](https://github.com/user-attachments/assets/63803e17-62d7-4c51-b417-3804c037c5c7)
+- **Maze Solver Script**  
+  The `maze_solver.py` script:
+  - Sets the initial robot pose to `(-5.18, -6.58)`
+  - Sends navigation goals to:
+    - `(-1.23, -2.1)`
+    - `(-7.4, -1.17)`
 
+---
 
-# Autonomous Waiter with GUI
-This robot makes use of the Commander API to differentiate between the different tables and customers. It efficiently performs the task of picking up orders from a source, and delivering it to different targets autonomously in a controlled environment.
+## 📦 Prerequisites
 
-![Nav2_Waiter_bot](https://github.com/user-attachments/assets/e9d9aac9-7e7f-424f-a6d8-f358628826e2)
+- **OS**: Ubuntu 22.04  
+- **ROS2**: Humble Hawksbill
 
-# Software Requirements
-1. Ubuntu 22.04 (LTS)
-2. ROS2 - Humble
+### Dependencies
+
+Install the following ROS2 packages:
+
+```bash
+sudo apt install \
+  ros-humble-turtlebot3 \
+  ros-humble-turtlebot3-simulations \
+  ros-humble-nav2-simple-commander \
+  ros-humble-navigation2 \
+  ros-humble-gazebo-ros-pkgs
